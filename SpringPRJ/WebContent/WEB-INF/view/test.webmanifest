@@ -1,0 +1,22 @@
+{
+    "name": "test Progressive Web App",
+    "short_name": "test",
+    "description": "Progressive Web App test by Hong.",
+    "icons": [
+        {
+            "src": "manchasterCity.JPG",
+            "sizes": "32x32",
+            "type": "image/JPG"
+        },
+
+        {
+            "src": "manchasterCity.JPG",
+            "sizes": "512x512",
+            "type": "image/JPG"
+        }
+    ],
+    "start_url": "/song.do",
+    "display": "fullscreen",
+    "theme_color": "#B12A34",
+    "background_color": "#B12A34"
+}
