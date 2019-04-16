@@ -42,15 +42,36 @@ public class NoticeController {
 	@RequestMapping(value="main")
 	public String main(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
 		
-		System.out.println("main");
+		System.out.println("connected on Web");
 		return "/index";
 	}
 
-	@RequestMapping(value="song")
-	public String test(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
+	@RequestMapping(value="appMain")
+	public String appMain(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
 		
-		System.out.println("test");
+		System.out.println("connected on App");
 		return "/index";
+	}
+	
+	@RequestMapping(value="mainRefresh")
+	public String mainRefresh(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
+		
+		System.out.println("mainRefresh");
+		return "/index";
+	}
+	
+	@RequestMapping(value="post")
+	public String post(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
+		
+		System.out.println("post.jsp");
+		return "/post";
+	}
+	
+	@RequestMapping(value="about")
+	public String about(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
+		
+		System.out.println("about.jsp");
+		return "/about";
 	}
 	
 	/**

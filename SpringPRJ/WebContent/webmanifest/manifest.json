@@ -1,22 +1,22 @@
 {
-    "name": "test Progressive Web App",
-    "short_name": "test",
-    "description": "Progressive Web App test by Hong.",
+    "name": "SePredi",
+    "short_name": "SePredi",
+    "description": "Progressive Web App by Hong.",
     "icons": [
         {
-            "src": "manchasterCity.JPG",
+            "src": "manchastercity.png",
             "sizes": "32x32",
-            "type": "image/JPG"
+            "type": "image/png"
         },
 
         {
-            "src": "manchasterCity.JPG",
+            "src": "manchastercity.png",
             "sizes": "512x512",
-            "type": "image/JPG"
+            "type": "image/png"
         }
     ],
-    "start_url": "/song.do",
+    "start_url": "/appMain.do",
     "display": "fullscreen",
-    "theme_color": "#B12A34",
-    "background_color": "#B12A34"
+    "theme_color": "#a8edff",
+    "background_color": "#a8edff"
 }
