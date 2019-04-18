@@ -4,19 +4,19 @@
     "description": "Progressive Web App by Hong.",
     "icons": [
         {
-            "src": "manchastercity.png",
+            "src": "icon.png",
             "sizes": "32x32",
             "type": "image/png"
         },
 
         {
-            "src": "manchastercity.png",
+            "src": "icon.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
-    "start_url": "/appMain.do",
-    "display": "fullscreen",
-    "theme_color": "#a8edff",
-    "background_color": "#a8edff"
+    "start_url": "/amain.do",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#000000"
 }
