@@ -9,7 +9,7 @@
 		<meta name="author" content="">
 		<link rel="manifest" href="/webmanifest/manifest.json" />
 		<link rel="icon" href="favicon.ico">
-		<title>Renda - clean blog theme based on Bootstrap</title>
+		<title>sepredi</title>
 		<!-- Bootstrap core CSS -->
 		<link href="/renda/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -31,7 +31,7 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="/mainRefresh.do">Home</a></li>
+						<li class="active"><a href="/main.do">Home</a></li>
 						<li><a href="#about">Lifestyle</a></li>
 						<li><a href="#contact">Travel</a></li>
 						<li><a href="#contact">Fashion</a></li>
@@ -55,13 +55,13 @@
 
 		<div class="container">
 			<header>
-				<a href="/mainRefresh.do"><img src="/renda/images/LogoSePredi.png"></a>
+				<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 35%;"></a>
 			</header>
 			<section class="main-slider">
 				<ul class="bxslider">
-					<li><div class="slider-item"><img src="/renda/images/1140x500-2.jpg" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
-					<li><div class="slider-item"><img src="/renda/images/1140x500-1.jpg" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
-					<li><div class="slider-item"><img src="/renda/images/1140x500-3.jpg" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
+					<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
+					<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
+					<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
 				</ul>
 			</section>
 			<section>

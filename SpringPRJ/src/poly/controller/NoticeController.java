@@ -39,27 +39,23 @@ public class NoticeController {
 	 * method => 기입안하면 GET, POST 모두 가능하나, 가급적 적어주는 것이 좋다.
 	 * */
 	
+	//메인화면으로 이동
 	@RequestMapping(value="main")
 	public String main(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
 		
-		System.out.println("connected on Web");
+		System.out.println("main");
 		return "/index";
 	}
 
-	@RequestMapping(value="appMain")
+	//app 시작 url
+	@RequestMapping(value="amain")
 	public String appMain(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
 		
-		System.out.println("connected on App");
+		System.out.println("amain");
 		return "/index";
 	}
 	
-	@RequestMapping(value="mainRefresh")
-	public String mainRefresh(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
-		
-		System.out.println("mainRefresh");
-		return "/index";
-	}
-	
+	//post화면으로 이동
 	@RequestMapping(value="post")
 	public String post(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
 		
@@ -67,6 +63,7 @@ public class NoticeController {
 		return "/post";
 	}
 	
+	//about화면으로 이동
 	@RequestMapping(value="about")
 	public String about(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
 		

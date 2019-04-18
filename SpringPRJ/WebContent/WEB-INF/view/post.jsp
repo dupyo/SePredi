@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Renda - clean blog theme based on Bootstrap</title>
+		<title>post</title>
 		<!-- Bootstrap core CSS -->
 		<link href="/renda/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -30,7 +30,7 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="/mainRefresh.do">Home</a></li>
+						<li class="active"><a href="/main.do">Home</a></li>
 						<li><a href="#about">Lifestyle</a></li>
 						<li><a href="#contact">Travel</a></li>
 						<li><a href="#contact">Fashion</a></li>
@@ -54,7 +54,7 @@
 
 		<div class="container">
 			<header>
-				<a href="/mainRefresh.do"><img src="/renda/images/LogoSePredi.png"></a>
+				<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 35%;"></a>
 			</header>
 			<section>
 				<div class="row">
