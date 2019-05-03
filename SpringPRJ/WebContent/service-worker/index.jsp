@@ -7,8 +7,9 @@
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta name="description" content="">
 		<meta name="author" content="">
+		<link rel="manifest" href="/webmanifest/manifest.json" />
 		<link rel="icon" href="favicon.ico">
-		<title>Renda - clean blog theme based on Bootstrap</title>
+		<title>sepredi</title>
 		<!-- Bootstrap core CSS -->
 		<link href="/renda/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -30,7 +31,7 @@
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html">Home</a></li>
+						<li class="active"><a href="/main.do">Home</a></li>
 						<li><a href="#about">Lifestyle</a></li>
 						<li><a href="#contact">Travel</a></li>
 						<li><a href="/about.do">About Me</a></li>
@@ -53,29 +54,51 @@
 
 		<div class="container">
 			<header>
-				<a href="index.html"><img src="images/logo.png"></a>
+				<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 35%;"></a>
 			</header>
+			<section class="main-slider">
+				<ul class="bxslider">
+					<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
+					<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
+					<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
+				</ul>
+			</section>
 			<section>
 				<div class="row">
 					<div class="col-md-8">
 						<article class="blog-post">
 							<div class="blog-post-image">
-								<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
+								<a href="/post.do"><img src="/renda/images/750x500-1.jpg" alt=""></a>
 							</div>
 							<div class="blog-post-body">
-								<h2><a href="post.html">Vintage-Inspired Finds for Your Home</a></h2>
+								<h2><a href="/post.do">Vintage-Inspired Finds for Your Home</a></h2>
 								<div class="post-meta"><span>by <a href="#">Jamie Mooze</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
-								<div class="blog-post-text">
-	
-									<p>A newly-developed mathematical method can detect geometric structure in neural activity in the brain. “Previously, in order to understand this structure, scientists needed to relate neural activity to some specific external stimulus,” said Vladimir Itskov, associate professor of mathematics at Penn State University. “Our method is the first to be able to reveal this structure without our knowing an external stimulus ahead of time. We’ve now shown that our new method will allow us to explore the organizational structure of neurons without knowing their function in advance.”</p>
-	
-									<p>“The traditional methods used by researchers to analyze the relationship between the activities of neurons were adopted from physics,” said Carina Curto, associate professor of mathematics at Penn State, “but neuroscience data doesn’t necessarily play by the same rules as data from physics, so we need new tools. Our method is a first step toward developing a new mathematical toolkit to uncover the structure of neural circuits with unknown function in the brain.”</p>
-	
-									<h3>Math reveals structure in neural activity in the brain</h3>
-									<p>The method — clique topology — was developed by an interdisciplinary team of researchers at Penn State, the University of Pennsylvania, the Howard Hughes Medical Institute, and the University of Nebraska-Lincoln. The method is described in a paper that will be posted in the early online edition of the journal Proceedings of the National Academy of Sciences during the week ending October 23, 2015.</p>
-	
-									<p>“We have adopted approaches from the field of algebraic topology that previously had been used primarily in the domain of pure mathematics and have applied them to experimental data on the activity of place cells — specialized neurons in the part of the brain called the hippocampus that sense the position of an animal in its environment,” said Curto.</p>
-								</div>
+								<p>ew months ago, we found ridiculously cheap plane tickets for Boston and off we went. It was our first visit to the city and, believe it or not, Stockholm in February was more pleasant than Boston in March. It probably has a lot to do with the fact that we arrived completely unprepared. That I, in my converse and thin jacket, did not end up with pneumonia is honestly not even fair.</p>
+								<div class="read-more"><a href="#">Continue Reading</a></div>
+							</div>
+						</article>
+						<!-- article -->
+						<article class="blog-post">
+							<div class="blog-post-image">
+								<a href="/post.do"><img src="/renda/images/750x500-2.jpg" alt=""></a>
+							</div>
+							<div class="blog-post-body">
+								<h2><a href="/post.do">The Best Street Style Looks of London Fashion Week</a></h2>
+								<div class="post-meta"><span>by <a href="#">Jamie Mooze</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+								<p>Few months ago, we found ridiculously cheap plane tickets for Boston and off we went. It was our first visit to the city and, believe it or not, Stockholm in February was more pleasant than Boston in March. It probably has a lot to do with the fact that we arrived completely unprepared.</p>
+								<div class="read-more"><a href="#">Continue Reading</a></div>
+							</div>
+						</article>
+						<!-- article -->
+						<article class="blog-post">
+							<div class="blog-post-image">
+								<a href="/post.do"><img src="/renda/images/750x500-3.jpg" alt=""></a>
+							</div>
+							<div class="blog-post-body">
+								<h2><a href="/post.do">Front Row Style: Our Favorite A-List Moments of Fashion Week</a></h2>
+								<div class="post-meta"><span>by <a href="#">Jamie Mooze</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+								<p>It was our first visit to the city and, believe it or not, Stockholm in February was more pleasant than Boston in March. It probably has a lot to do with the fact that we arrived completely unprepared. Few months ago, we found ridiculously cheap plane tickets for Boston and off we went.</p>
+								<div class="read-more"><a href="#">Continue Reading</a></div>
 							</div>
 						</article>
 					</div>
@@ -85,7 +108,7 @@
 							<div class="sidebar-widget">
 								<h3 class="sidebar-title">About Me</h3>
 								<div class="widget-container widget-about">
-									<a href="post.html"><img src="images/author.jpg" alt=""></a>
+									<a href="/post.do"><img src="/renda/images/author.jpg" alt=""></a>
 									<h4>Jamie Mooz</h4>
 									<div class="author-title">Designer</div>
 									<p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>
@@ -97,56 +120,56 @@
 								<div class="widget-container">
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="post.html"><img src="images/90x60-1.jpg" alt=""></a>
+											<a href="/post.do"><img src="/renda/images/90x60-1.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="post.html">The State of the Word 2014</a></h2>
+											<h2><a href="/post.do">The State of the Word 2014</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="post.html"><img src="images/90x60-2.jpg" alt=""></a>
+											<a href="/post.do"><img src="/renda/images/90x60-2.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="post.html">Why The Muppets Needs to Channel 30 Rock</a></h2>
+											<h2><a href="/post.do">Why The Muppets Needs to Channel 30 Rock</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="post.html"><img src="images/90x60-3.jpg" alt=""></a>
+											<a href="/post.do"><img src="/renda/images/90x60-3.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="post.html">The State of the Word 2014</a></h2>
+											<h2><a href="/post.do">The State of the Word 2014</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="post.html"><img src="images/90x60-4.jpg" alt=""></a>
+											<a href="/post.do"><img src="/renda/images/90x60-4.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="post.html">Vintage-Inspired Finds for Your Home</a></h2>
+											<h2><a href="/post.do">Vintage-Inspired Finds for Your Home</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="post.html"><img src="images/90x60-5.jpg" alt=""></a>
+											<a href="/post.do"><img src="/renda/images/90x60-5.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="post.html">The State of the Word 2014</a></h2>
+											<h2><a href="/post.do">The State of the Word 2014</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="post.html"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>
@@ -171,7 +194,6 @@
 								<h3 class="sidebar-title">Categories</h3>
 								<div class="widget-container">
 									<ul>
-										<li><a href="#">Fashion</a></li>
 										<li><a href="#">Art</a></li>
 										<li><a href="#">Design</a></li>
 										<li><a href="#">Featured</a></li>
