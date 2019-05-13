@@ -55,6 +55,14 @@ public class NoticeController {
 		return "/index";
 	}
 	
+	//pwatest 시작 url
+	@RequestMapping(value="index2")
+	public String index2(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
+		
+		System.out.println("index2");
+		return "/index2";
+	}
+	
 	//post화면으로 이동
 	@RequestMapping(value="post")
 	public String post(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
