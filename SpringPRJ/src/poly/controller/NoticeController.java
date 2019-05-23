@@ -1,7 +1,5 @@
 package poly.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -11,13 +9,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import poly.dto.NoticeDTO;
 import poly.service.INoticeService;
-import poly.util.CmmUtil;
 
 /*
  * Controller 선언해야만 Spring 프레임워크에서 Controller인지 인식 가능
@@ -27,9 +21,16 @@ import poly.util.CmmUtil;
 public class NoticeController {
 	private Logger log = Logger.getLogger(this.getClass());
 	
+	//WebContent 폴더 밑에 있는 json형식 파일에서 key값에 해당하는 value값 불러오기
+	//public static final String clientID = JSONReadFromFile.parseJSON("client_id", "/jsonData/secretKey.json");
+	
 	/*
 	 * 비즈니스 로직(중요 로직을 수행하기 위해 사용되는 서비스를 메모리에 적재(싱글톤패턴 적용됨)
 	 * */
+	
+	String msg="";
+	String url="";
+	
 	@Resource(name = "NoticeService")
 	private INoticeService noticeService;
 	
@@ -78,6 +79,8 @@ public class NoticeController {
 		System.out.println("about.jsp");
 		return "/about";
 	}
+	
+	
 	
 	/**
 	 * 게시판 리스트 보여주기

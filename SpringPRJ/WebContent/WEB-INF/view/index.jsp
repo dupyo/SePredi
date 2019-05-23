@@ -1,7 +1,11 @@
 <!DOCTYPE html>
+<%@page import="poly.controller.UserController"%>
+<%@page import="com.fasterxml.jackson.databind.JsonNode"%>
+<%@page import="poly.util.CmmUtil"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -17,6 +21,9 @@
 	<link href="/renda/css/jquery.bxslider.css" rel="stylesheet">
 	<link href="/renda/css/style.css" rel="stylesheet">
 	
+	<% String id = CmmUtil.nvl((String)session.getAttribute("id")); %>
+	<% String name = CmmUtil.nvl((String)session.getAttribute("name")); %>
+	<% String email = CmmUtil.nvl((String)session.getAttribute("email")); %>
 	
 	<!-- pushtest css -->
 	<!-- <style>
@@ -35,9 +42,7 @@
 	
 </head>
 <body>
-
-
-
+<button onclick="sibal()">로그아웃</button>
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -59,9 +64,15 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/sociallogin.do">Sign in</a></li>
+					<%if (!"".equals(name)) { %>
+					<li style="padding:15px; color:white"><%=name %>님 환영합니다.</li>
+					<li><a href="/kakaologout.do">Sign out</a></li>
+					<%} else {%>
+					<li><a href="https://kauth.kakao.com/oauth/authorize?client_id=<%=UserController.clientID %>&redirect_uri=https://localhost:8443/kakaologin.do&response_type=code">
+					Sign in</a></li><!-- rest api 인증키를 받은 후 url을 만들어서 로그인 화면으로 이동 -->
 					<!-- <a href="/renda/images/kakao_account_login_btn_medium_narrow.png"></a> -->
 					<li><a href="#">Sign up</a></li>
+					<%} %>
 				</ul>
 
 			</div>
@@ -118,6 +129,9 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 					
 					
 					
+	<%=email %><br>
+	<%=name %><br>
+	<%=id %>
 					<article class="blog-post">
 						<div class="blog-post-image">
 							<a href="/post.do"><img src="/renda/images/750x500-1.jpg" alt=""></a>
@@ -281,5 +295,13 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 	<script src="/renda/js/bootstrap.min.js"></script>
 	<script src="/renda/js/jquery.bxslider.js"></script>
 	<script src="/renda/js/mooz.scripts.min.js"></script>
+<script>
+const jsonData = {
+		read : $.getJSON('/jsonData/secretKey.json',function(data){
+})
+}
+console.table(jsonData);
+console.log(jsonData.read.responseJSON.apikey);
+</script>
 </body>
 </html>

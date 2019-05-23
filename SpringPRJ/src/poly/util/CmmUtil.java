@@ -41,4 +41,10 @@ public class CmmUtil {
 			return "";
 		}
 	}
+	
+	public static String cut(String str) {
+	
+		return str.substring(1, str.length()-1);
+		
+	}
 }

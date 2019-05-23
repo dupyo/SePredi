@@ -1,45 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="poly.util.CmmUtil" %>
 <%
-request.setCharacterEncoding("euc-kr");
+request.setCharacterEncoding("UTF-8");
 
 String SESSION_USER_ID = CmmUtil.nvl((String)session.getAttribute("SESSION_USER_ID"));
 %>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>°Ô½ÃÆÇ ±Û¾²±â</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ê²Œì‹œíŒ ê¸€ì“°ê¸°</title>
 <script type="text/javascript">
 
-//·Î±×ÀÎ ¿©ºÎ Ã¼Å©
+//ë¡œê·¸ì¸ ì—¬ë¶€ ì²´í¬
 function doOnload(){
 	var user_id = "<%=SESSION_USER_ID%>";
 	
 	if (user_id==""){
-		alert("·Î±×ÀÎµÈ »ç¿ëÀÚ¸¸ ±ÛÀ» ¾µ ¼ö ÀÖ½À´Ï´Ù.");
+		alert("ë¡œê·¸ì¸ëœ ì‚¬ìš©ìë§Œ ê¸€ì„ ì“¸ ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
 		top.location.href="/notice/NoticeList.do";
 		
 	}
 	
 }
 
-//Àü¼Û½Ã À¯È¿¼º Ã¼Å©
+//ì „ì†¡ì‹œ ìœ íš¨ì„± ì²´í¬
 function doSubmit(f){
 	if(f.title.value == ""){
-		alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.");
+		alert("ì œëª©ì„ ì…ë ¥í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 		f.title.focus();
 		return false;
 	}
 	
 	if(calBytes(f.title.value) > 200){
-		alert("ÃÖ´ë 200Bytes±îÁö ÀÔ·Â °¡´ÉÇÕ´Ï´Ù.");
+		alert("ìµœëŒ€ 200Bytesê¹Œì§€ ì…ë ¥ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 		f.title.focus();
 		return false;
 	}	
 	
-	var noticeCheck = false; //Ã¼Å© ¿©ºÎ È®ÀÎ º¯¼ö
+	var noticeCheck = false; //ì²´í¬ ì—¬ë¶€ í™•ì¸ ë³€ìˆ˜
 	for(var i=0;i<f.noticeYn.length;i++){
 		if (f.noticeYn[i].checked){
 			noticeCheck = true;
@@ -47,19 +47,19 @@ function doSubmit(f){
 	}
 	
 	if(noticeCheck==false){
-		alert("°øÁö±Û ¿©ºÎ¸¦ ¼±ÅÃÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.");
+		alert("ê³µì§€ê¸€ ì—¬ë¶€ë¥¼ ì„ íƒí•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 		f.noticeYn[0].focus();
 		return false;
 	}	
 	
 	if(f.contents.value == ""){
-		alert("³»¿ëÀ» ÀÔ·ÂÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.");
+		alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 		f.contents.focus();
 		return false;
 	}	
 	
 	if(calBytes(f.contents.value) > 4000){
-		alert("ÃÖ´ë 4000Bytes±îÁö ÀÔ·Â °¡´ÉÇÕ´Ï´Ù.");
+		alert("ìµœëŒ€ 4000Bytesê¹Œì§€ ì…ë ¥ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 		f.contents.focus();
 		return false;
 	}		
@@ -67,7 +67,7 @@ function doSubmit(f){
 	
 }
 
-//±ÛÀÚ ±æÀÌ ¹ÙÀÌÆ® ´ÜÀ§·Î Ã¼Å©ÇÏ±â(¹ÙÀÌÆ®°ª Àü´Ş)
+//ê¸€ì ê¸¸ì´ ë°”ì´íŠ¸ ë‹¨ìœ„ë¡œ ì²´í¬í•˜ê¸°(ë°”ì´íŠ¸ê°’ ì „ë‹¬)
 function calBytes(str){
 	
 	var tcount = 0;
@@ -96,13 +96,13 @@ function calBytes(str){
 		<col width="100px" />
 		<col width="500px" />
 		<tr>
-			<td align="center">Á¦¸ñ</td>
+			<td align="center">ì œëª©</td>
 			<td><input type="text" name="title" maxlength="100" style="width: 450px" /></td>
 		</tr>
 		<tr>
-			<td align="center">°øÁö±Û ¿©ºÎ</td>
-			<td>¿¹<input type="radio" name="noticeYn" value="1" />
-			        ¾Æ´Ï¿À<input type="radio" name="noticeYn" value="2" />
+			<td align="center">ê³µì§€ê¸€ ì—¬ë¶€</td>
+			<td>ì˜ˆ<input type="radio" name="noticeYn" value="1" />
+			        ì•„ë‹ˆì˜¤<input type="radio" name="noticeYn" value="2" />
 			</td>
 		</tr>
 		<tr>
@@ -112,13 +112,13 @@ function calBytes(str){
 		</tr>
 	<tr>
 		<td align="center" colspan="2">
-			<input type="submit" value="µî·Ï" />
-			<input type="reset" value="´Ù½Ã ÀÛ¼º" />
+			<input type="submit" value="ë“±ë¡" />
+			<input type="reset" value="ë‹¤ì‹œ ì‘ì„±" />
 		</td>
 	</tr>		
 	</table>
 </form>
-<!-- ÇÁ·Î¼¼½º Ã³¸®¿ë iframe / form ÅÂ±×¿¡¼­ targetÀ» iframeÀ¸·Î ÇÑ´Ù. -->
+<!-- í”„ë¡œì„¸ìŠ¤ ì²˜ë¦¬ìš© iframe / form íƒœê·¸ì—ì„œ targetì„ iframeìœ¼ë¡œ í•œë‹¤. -->
 <iframe name="ifrPrc" style="display:none"></iframe>
 </body>
 </html>
