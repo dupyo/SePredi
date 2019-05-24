@@ -21,6 +21,7 @@ public class KakaoLogout {
 
 		// add header
 		post.addHeader("Authorization", "Bearer " + autorize_code);
+		post.addHeader("exp", "Number " + "10");
 
 		JsonNode returnNode = null;
 

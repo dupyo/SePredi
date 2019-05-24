@@ -42,7 +42,7 @@
 	
 </head>
 <body>
-<button onclick="sibal()">로그아웃</button>
+<!-- <button onclick="sibal()">로그아웃</button> -->
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -68,7 +68,7 @@
 					<li style="padding:15px; color:white"><%=name %>님 환영합니다.</li>
 					<li><a href="/kakaologout.do">Sign out</a></li>
 					<%} else {%>
-					<li><a href="https://kauth.kakao.com/oauth/authorize?client_id=<%=UserController.clientID %>&redirect_uri=https://localhost:8443/kakaologin.do&response_type=code">
+					<li><a href="/accountskakao.do">
 					Sign in</a></li><!-- rest api 인증키를 받은 후 url을 만들어서 로그인 화면으로 이동 -->
 					<!-- <a href="/renda/images/kakao_account_login_btn_medium_narrow.png"></a> -->
 					<li><a href="#">Sign up</a></li>
@@ -110,6 +110,10 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 		<header>
 			<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 35%;"></a>
 		</header>
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+			Launch demo modal
+		</button>
+		<!-- Button trigger modal -->
 		<section class="main-slider">
 			<ul class="bxslider">
 				<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
@@ -128,10 +132,31 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 					<script src="/scripts/app.js" async></script> -->
 					
 					
+					<!-- Modal -->
+					<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">카카오 로그인</h4>
+								</div>
+								<div class="modal-body">
+								 카카로 계정으로 로그인하면 쿠키 데이터가 최대 6시간동안 유지됩니다. 그래도 하시겠습니까?
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary" id="kakaologin">Accept</button>
+								</div>
+							</div>
+						</div>
+					</div>
 					
-	<%=email %><br>
-	<%=name %><br>
-	<%=id %>
+					
+					<%=email %><br>
+					<%=name %><br>
+					<%=id %>
+					
+					
 					<article class="blog-post">
 						<div class="blog-post-image">
 							<a href="/post.do"><img src="/renda/images/750x500-1.jpg" alt=""></a>
@@ -144,17 +169,7 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 						</div>
 					</article>
 					<!-- article -->
-					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="/post.do"><img src="/renda/images/750x500-2.jpg" alt=""></a>
-						</div>
-						<div class="blog-post-body">
-							<h2><a href="/post.do">The Best Street Style Looks of London Fashion Week</a></h2>
-							<div class="post-meta"><span>by <a href="#">Jamie Mooze</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
-							<p>Few months ago, we found ridiculously cheap plane tickets for Boston and off we went. It was our first visit to the city and, believe it or not, Stockholm in February was more pleasant than Boston in March. It probably has a lot to do with the fact that we arrived completely unprepared.</p>
-							<div class="read-more"><a href="#">Continue Reading</a></div>
-						</div>
-					</article>
+					
 				</div>
 				<div class="col-md-4 sidebar-gutter">
 					<aside>
@@ -183,17 +198,7 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 										</div>
 									</div>
 								</article>
-								<article class="widget-post">
-									<div class="post-image">
-										<a href="/post.do"><img src="/renda/images/90x60-2.jpg" alt=""></a>
-									</div>
-									<div class="post-body">
-										<h2><a href="/post.do">Why The Muppets Needs to Channel 30 Rock</a></h2>
-										<div class="post-meta">
-											<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
-										</div>
-									</div>
-								</article>
+								
 								
 								
 							</div>
@@ -295,13 +300,23 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 	<script src="/renda/js/bootstrap.min.js"></script>
 	<script src="/renda/js/jquery.bxslider.js"></script>
 	<script src="/renda/js/mooz.scripts.min.js"></script>
-<script>
+<!-- <script>
 const jsonData = {
 		read : $.getJSON('/jsonData/secretKey.json',function(data){
 })
 }
 console.table(jsonData);
 console.log(jsonData.read.responseJSON.apikey);
+</script> -->
+<!-- <script>
+$('#myModal').on('shown.bs.modal', function () {
+		$('#myInput').focus()
+	})
+</script> -->
+<script>
+$('#kakaologin').click( function () {
+	location.href="/accountskakao.do";
+})
 </script>
 </body>
 </html>

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import poly.service.INoticeService;
@@ -53,6 +54,12 @@ public class UserController {
 	 * */
 	
 	
+	@RequestMapping(value="accountskakao")
+	public String accountkakao(HttpServletRequest request, HttpSession session, HttpServletResponse response, Model model) throws Exception {
+		log.info("access accounts.kakao.com");
+		return "redirect:https://kauth.kakao.com/oauth/authorize?client_id="+clientID+"&redirect_uri=https://localhost:8443/kakaologin.do&expires_in=10&exp=10&expire=10&expires=10&max_age=10&response_type=code";
+	}
+	
 	//카카오 로그인 후 code값 받고 카카오 계정의 정보 가져올 수 있는 식별자 토큰을 가져온다
 	//토큰은 계속 유지됨
 	@RequestMapping(value="kakaologin", produces="application/json", method=RequestMethod.GET)
@@ -65,11 +72,13 @@ public class UserController {
 		System.out.println("jsonToken : " + jsonToken);
 		// 여러 json객체 중 access_token을 가져온다
 		JsonNode accessToken = jsonToken.get("access_token");
+		JsonNode refreshToken = jsonToken.get("refresh_token");
 		System.out.println("access_token : " + accessToken);
 		
 		//accessToken을 세션에 올린다 
 		//return type은 JsonNode 형태
 		session.setAttribute("accessToken", accessToken);
+		session.setAttribute("refreshToken", refreshToken);
 		session.setAttribute("atString", accessToken.toString());
 		
 		
@@ -138,7 +147,9 @@ public class UserController {
 		//쿠키 삭제
 		Cookie[] cookies = request.getCookies();	//쿠키를 서버에서 요청한다.
 		for(int i=0; i < cookies.length;i++)	{
-			cookies[i].setMaxAge(0);	//쿠키의 최대기간을 "0"으로 지정해주면 제거 된다.
+			log.info(cookies[i].getValue());
+			cookies[i].setValue(null);
+			cookies[i].setMaxAge(0);	//쿠키의 최대수명을 "0"으로 지정해주면 제거 된다. //단위는 sec
 			response.addCookie(cookies[i]);   //서버에 추가를 요청한다.(저장은 클라이언트에)
 			System.out.println("쿠키를 제거하였습니다.");
 		}

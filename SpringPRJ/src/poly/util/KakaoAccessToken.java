@@ -24,12 +24,18 @@ public class KakaoAccessToken {
 		
 		final String RequestUrl = "https://kauth.kakao.com/oauth/token"; // Host
 		final List<NameValuePair> postParams = new ArrayList<NameValuePair>();
-		
 		//String clientID = JSONReadFromFile.parseJSON("client_id", "/jsonData/secretKey.json"); //WebContent 폴더 밑에 있는 json형식 파일 불러오기
 		
 		postParams.add(new BasicNameValuePair("grant_type", "authorization_code"));
 		postParams.add(new BasicNameValuePair("client_id", UserController.clientID)); // REST API KEY
 		postParams.add(new BasicNameValuePair("redirect_uri", "https://localhost:8443/kakaologin.do")); // 리다이렉트 URI
+		postParams.add(new BasicNameValuePair("expire", "10")); // 로그인시 발급받는 토큰의 만료시간 설정 성공 시 닥치고 퇴근
+		postParams.add(new BasicNameValuePair("expiration_time", "10")); // 로그인시 발급받는 토큰의 만료시간 설정 성공 시 닥치고 퇴근
+		postParams.add(new BasicNameValuePair("expires", "10")); // 로그인시 발급받는 토큰의 만료시간 설정 성공 시 닥치고 퇴근
+		postParams.add(new BasicNameValuePair("expires_in", "10")); // 로그인시 발급받는 토큰의 만료시간 설정 성공 시 닥치고 퇴근
+		postParams.add(new BasicNameValuePair("expires_in/max_age", "0/0")); // 로그인시 발급받는 토큰의 만료시간 설정 성공 시 닥치고 퇴근
+		postParams.add(new BasicNameValuePair("max_age", "10")); // 로그인시 발급받는 토큰의 만료시간 설정 성공 시 닥치고 퇴근
+		postParams.add(new BasicNameValuePair("exp", "10")); // 로그인시 발급받는 토큰의 만료시간 설정 성공 시 닥치고 퇴근
 		postParams.add(new BasicNameValuePair("code", code)); // 로그인 과정중 얻은 code 값
 
 		final HttpClient client = HttpClientBuilder.create().build();
