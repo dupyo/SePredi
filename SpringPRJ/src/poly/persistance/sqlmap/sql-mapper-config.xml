@@ -6,6 +6,8 @@
     	<!-- 사용할 DTO 등록  -->
 		<typeAlias type="poly.dto.NoticeDTO" alias="NoticeDTO"/>
 		<typeAlias type="poly.dto.CrawlingDTO" alias="CrawlingDTO"/>
-		<typeAlias type="poly.dto.UserInfoDTO" alias="UserInfoDTO"/>
+		<typeAlias type="poly.dto.UserDTO" alias="UserDTO"/>
+		<typeAlias type="poly.dto.SearchDTO" alias="SearchDTO"/>
+		<typeAlias type="poly.dto.BoardDTO" alias="BoardDTO"/>
     </typeAliases>
 </configuration>

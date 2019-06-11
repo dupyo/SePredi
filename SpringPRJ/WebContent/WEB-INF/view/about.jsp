@@ -31,19 +31,13 @@
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="/main.do">Home</a></li>
-						<li><a href="#about">Lifestyle</a></li>
-						<li><a href="#contact">Travel</a></li>
-						<li><a href="/about.do">About Me</a></li>
-						<li><a href="/about.do">Contact</a></li>
+						<li><a href="/search.do">Search</a></li>
+						<li><a href="/boardList.do">Board</a></li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-						<li><a href="#"><i class="fa fa-reddit"></i></a></li>
 					</ul>
 
 				</div>
@@ -52,15 +46,15 @@
 		</nav>
 
 		<div class="container">
-		<header>
-			<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 35%;"></a>
+		<header style="margin: 51px 0 0;">
+			<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 30%;"></a>
 		</header>
 		<section>
 			<div class="row">
 				<div class="col-md-12">
 					<article class="blog-post">
 						<div class="blog-post-body">
-							<h2><a href="/post.do">About Author</a></h2>
+							<h2><a href="/search.do">About Author</a></h2>
 							<div class="blog-post-text">
 
 								<p>A newly-developed mathematical method can detect geometric structure in neural activity in the brain. “Previously, in order to understand this structure, scientists needed to relate neural activity to some specific external stimulus,” said Vladimir Itskov, associate professor of mathematics at Penn State University. “Our method is the first to be able to reveal this structure without our knowing an external stimulus ahead of time. We’ve now shown that our new method will allow us to explore the organizational structure of neurons without knowing their function in advance.”</p>

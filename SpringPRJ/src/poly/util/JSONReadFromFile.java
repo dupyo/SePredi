@@ -14,14 +14,14 @@ public class JSONReadFromFile {
 	
 	//WebContent 폴더 밑에 있는 json형식  파일을 불러와서 원하는 키값에 해당하는 밸류값을 반환해줌
 	//읽고자 하는 json형식 파일의 파일경로를 WebContent밑부터 url인자값으로 지정하고 원하는 키값을 name인자값으로 지정해주면 키값에 해당하는 밸류값을 반환  
-	public static String parseJSON(String name, String url) {
+	public static String parseJSON(String name, String filepath) {
 
 		String value = "";
 		JSONParser parser = new JSONParser();
 		
 		try {
 			//WebContent 폴더 밑에 있는 파일 불러오기
-			Object obj = parser.parse(new FileReader("C:\\SePredi\\SpringPRJ\\WebContent\\" + url));
+			Object obj = parser.parse(new FileReader("C:\\SePredi\\SpringPRJ\\WebContent\\" + filepath));
 	 
 			JSONObject jsonObject = (JSONObject) obj;
 	 

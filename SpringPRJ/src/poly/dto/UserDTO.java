@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
  * @author 홍두표
  * @version 1.1 공지사항 DTO
  */
-public class UserInfoDTO {
+public class UserDTO {
 
 	private String userNo;	//회원번호(PK)
 	private String id;	//사용자 고유 ID

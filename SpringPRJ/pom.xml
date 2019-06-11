@@ -27,6 +27,20 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.2</version>
         </dependency>
+        
+        <!-- openCSV -->
+        <dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>4.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<dependency>
+    		<groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+    		<version>1.11.3</version>
+		</dependency>
 
 		<!-- Spring -->
 		<dependency>
@@ -185,7 +199,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.41</version>
+			<version>5.1.44</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>

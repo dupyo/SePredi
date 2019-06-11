@@ -57,10 +57,8 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/main.do">Home</a></li>
-					<li><a href="#about">Lifestyle</a></li>
-					<li><a href="#contact">Travel</a></li>
-					<li><a href="/about.do">About Me</a></li>
-					<li><a href="/about.do">Contact</a></li>
+					<li><a href="/search.do">Search</a></li>
+					<li><a href="/boardList.do">Board</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -107,11 +105,17 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 
 
 	<div class="container">
-		<header>
-			<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 35%;"></a>
+		<header style="margin: 51px 0 0;">
+			<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 30%;"></a>
 		</header>
+		
+		
+		<!-- <video src="https://youtu.be/Q_0ftCADSZk" controls>브라우저가 비디오를 지원하지 않습니다.
+		</video> -->
+		
+		
 		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-			Launch demo modal
+			Sign in
 		</button>
 		<!-- Button trigger modal -->
 		<section class="main-slider">
@@ -159,10 +163,10 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 					
 					<article class="blog-post">
 						<div class="blog-post-image">
-							<a href="/post.do"><img src="/renda/images/750x500-1.jpg" alt=""></a>
+							<a href="/search.do"><img src="/renda/images/750x500-1.jpg" alt=""></a>
 						</div>
 					<div class="blog-post-body">
-							<h2><a href="/post.do">Vintage-Inspired Finds for Your Home</a></h2>
+							<h2><a href="/search.do">Vintage-Inspired Finds for Your Home</a></h2>
 							<div class="post-meta"><span>by <a href="#">Jamie Mooze</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
 							<p>ew months ago, we found ridiculously cheap plane tickets for Boston and off we went. It was our first visit to the city and, believe it or not, Stockholm in February was more pleasant than Boston in March. It probably has a lot to do with the fact that we arrived completely unprepared. That I, in my converse and thin jacket, did not end up with pneumonia is honestly not even fair.</p>
 							<div class="read-more"><a href="#">Continue Reading</a></div>
@@ -175,9 +179,9 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 					<aside>
 						<!-- sidebar-widget -->
 						<div class="sidebar-widget">
-							<h3 class="sidebar-title">About Me</h3>
+							<h3 class="sidebar-title">Board</h3>
 							<div class="widget-container widget-about">
-								<a href="/post.do"><img src="/renda/images/author.jpg" alt=""></a>
+								<a href="/search.do"><img src="/renda/images/author.jpg" alt=""></a>
 								<h4>Jamie Mooz</h4>
 								<div class="author-title">Designer</div>
 								<p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>
@@ -189,12 +193,12 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 							<div class="widget-container">
 								<article class="widget-post">
 									<div class="post-image">
-										<a href="/post.do"><img src="/renda/images/90x60-1.jpg" alt=""></a>
+										<a href="/search.do"><img src="/renda/images/90x60-1.jpg" alt=""></a>
 									</div>
 									<div class="post-body">
-										<h2><a href="/post.do">The State of the Word 2014</a></h2>
+										<h2><a href="/search.do">The State of the Word 2014</a></h2>
 										<div class="post-meta">
-											<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
+											<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/search.do"><i class="fa fa-comment-o"></i> 23</a></span>
 										</div>
 									</div>
 								</article>
@@ -300,6 +304,7 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 	<script src="/renda/js/bootstrap.min.js"></script>
 	<script src="/renda/js/jquery.bxslider.js"></script>
 	<script src="/renda/js/mooz.scripts.min.js"></script>
+	<script src="/scripts/pageMove.js"></script>
 <!-- <script>
 const jsonData = {
 		read : $.getJSON('/jsonData/secretKey.json',function(data){
@@ -314,9 +319,48 @@ $('#myModal').on('shown.bs.modal', function () {
 	})
 </script> -->
 <script>
+//Controller로 카카오계정 로그인 url 요청 보내기
 $('#kakaologin').click( function () {
 	location.href="/accountskakao.do";
 })
+
+
+
+
+//뉴스 타이틀, 요약 정보 가져오기
+/* var request = require('request'),
+    cheerio = require('cheerio');
+
+var url = "http://codenamu.org/blog/";
+
+request(url, function (err, res, html) {
+    if (!err) {
+        var $ = cheerio.load(html);
+        
+        // 블로그 title 정보 가져오기
+        $(".entry-title > a").each(function () {
+            var post = {"title": "", "link": "", "summary": "", "category": []};
+            var data = $(this);
+            
+            post["title"] = data.text();
+            post["link"] = data.attr("href");
+        });
+        
+        // 블로그 요약 정보 가져오기
+        $(".entry-summary > p").each(function (i) {
+            // do something
+        })
+ 
+        // 블로그 카테고리 가져오기
+        $(".entry-categories").each(function (i) {
+            $(this).children('a').each(function () {
+                // do something
+            });
+        })
+    } */
+
 </script>
+<div style="cursor:pointer" onclick="pageMove.notice('insert')">asdsad</div>
+<div style="cursor:pointer" onclick="pageMove.click()">click</div>
 </body>
 </html>

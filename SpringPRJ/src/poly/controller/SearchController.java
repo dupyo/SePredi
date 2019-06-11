@@ -19,18 +19,32 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import poly.dto.SearchDTO;
 import poly.service.ICrawlingService;
+import poly.service.ISearchService;
 import poly.util.CSVReadFromFile;
 
 @Controller
-public class CrawlingController {
+public class SearchController {
 	private Logger log = Logger.getLogger(this.getClass());
 	
-	@Resource(name="CrawlingService")
-	private ICrawlingService crawlingService;
+	@Resource(name="SearchService")
+	private ISearchService searchService;
 	
+	@RequestMapping(value="search")
+	public String search(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception {
+		System.out.println("search.jsp");
+		
+		
+		List<SearchDTO> nationalities = searchService.getNationality();
+		List<SearchDTO> leaguenclubs = searchService.getLeagueNClub();
+		Iterator<SearchDTO> itleaguenclubs = leaguenclubs.iterator();
+		model.addAttribute("nationalities", nationalities);
+		model.addAttribute("itleaguenclubs", itleaguenclubs);
+		return "/search";
+	}
 	
-	/*@RequestMapping(value="searchFromCSV", method=RequestMethod.GET)
+	@RequestMapping(value="searchFromCSV", method=RequestMethod.GET)
 	public String searchFromCSV(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception {
 		
 		CSVReadFromFile read = new CSVReadFromFile();
@@ -38,8 +52,8 @@ public class CrawlingController {
 		List<String[]> data = read.readCSV("/csvfile/data.csv");
 		List<String[]> searchList = new ArrayList<String[]>();
 		String keywords = request.getParameter("keywords");
-		String nationality = "belgium";
-		String club = "manchaster unitied";
+		String nationality = "Belgium";
+		String club = "Manchester United";
 		String listlength = "";
 		log.info("keywords : " + keywords);
 		
@@ -47,10 +61,10 @@ public class CrawlingController {
 		while (it.hasNext()) {
 			String[] playerInfo = it.next();
 			
-			//if (playerInfo[2].toLowerCase().contains(keywords.toLowerCase()) && 
-			//		playerInfo[5].contains(nationality.toLowerCase()) &&
-			//		playerInfo[7].contains(club.toLowerCase())) {
-			if (playerInfo[2].toLowerCase().contains(keywords.toLowerCase())) { 
+			if (playerInfo[2].toLowerCase().contains(keywords.toLowerCase()) && 
+					playerInfo[5].toLowerCase().contains(nationality.toLowerCase()) &&
+					playerInfo[9].toLowerCase().contains(club.toLowerCase())) {
+//			if (playerInfo[2].toLowerCase().contains(keywords.toLowerCase())) { 
 				
 				//검색한 선수의 정보를 List<String[]>형태로 받는다 
 				searchList.add(playerInfo);
@@ -60,10 +74,10 @@ public class CrawlingController {
 				//행마다 선수 정보가 있는지 선수명으로 확인
 				System.out.println("The player's name is " + playerInfo[2]);
 			}
-		//	for (String s : array) {
-		//		System.out.print(s + " ");
-		//	}
-			System.out.print("\n");
+//			for (String s : array) {
+//				System.out.print(s + " ");
+//			}
+//			System.out.print("\n");
 		}
 		Iterator<String[]> itlist = searchList.iterator();
 		model.addAttribute("itlist", itlist);
@@ -71,7 +85,7 @@ public class CrawlingController {
 		
 		
 		return "/search";
-	}*/
+	}
 	
 	/*@RequestMapping(value="googleandNamuwiki")
 	public String searchNamuwiki(HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model) throws Exception {

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.SearchMapper">
+	<!-- 국적 정보 가져오기 -->
+	<select id="getNationality" resultType="SearchDTO">
+		select distinct nationality as nationality 
+		from sepredi.players 
+		order by nationality asc;
+	</select>
+	
+	<!-- 리그 및 클럽 정보 가져오기 -->
+	<select id="getLeagueNClub" resultType="SearchDTO">
+		select leagueandclub.league as league, leagueandclub.club as club 
+		from leagueandclub 
+		order by leagueandclub.league desc, leagueandclub.club asc;
+	</select>
+	
+	
+</mapper>

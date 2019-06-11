@@ -31,19 +31,14 @@
 				<div id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="/main.do">Home</a></li>
-						<li><a href="#about">Lifestyle</a></li>
+						<li><a href="/search.do">Search</a></li>
 						<li><a href="#contact">Travel</a></li>
-						<li><a href="/about.do">About Me</a></li>
-						<li><a href="/about.do">Contact</a></li>
+						<li><a href="/boardList.do">Board</a></li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-						<li><a href="#"><i class="fa fa-reddit"></i></a></li>
 					</ul>
 
 				</div>
@@ -52,29 +47,42 @@
 		</nav>
 
 		<div class="container">
-			<header>
-				<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 35%;"></a>
+			<header style="margin: 51px 0 0;">
+				<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 30%;"></a>
 			</header>
 			<section>
 				<div class="row">
 					<div class="col-md-8">
 						<article class="blog-post">
 							<div class="blog-post-image">
-								<a href="/post.do"><img src="/renda/images/750x500-5.jpg" alt=""></a>
+								<a href="/search.do"><img src="/renda/images/750x500-5.jpg" alt=""></a>
 							</div>
 							<div class="blog-post-body">
-								<h2><a href="/post.do">Vintage-Inspired Finds for Your Home</a></h2>
+								<h2><a href="/search.do">Vintage-Inspired Finds for Your Home</a></h2>
 								<div class="post-meta"><span>by <a href="#">Jamie Mooze</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
 								<div class="blog-post-text">
-	
-									<p>A newly-developed mathematical method can detect geometric structure in neural activity in the brain. “Previously, in order to understand this structure, scientists needed to relate neural activity to some specific external stimulus,” said Vladimir Itskov, associate professor of mathematics at Penn State University. “Our method is the first to be able to reveal this structure without our knowing an external stimulus ahead of time. We’ve now shown that our new method will allow us to explore the organizational structure of neurons without knowing their function in advance.”</p>
-	
-									<p>“The traditional methods used by researchers to analyze the relationship between the activities of neurons were adopted from physics,” said Carina Curto, associate professor of mathematics at Penn State, “but neuroscience data doesn’t necessarily play by the same rules as data from physics, so we need new tools. Our method is a first step toward developing a new mathematical toolkit to uncover the structure of neural circuits with unknown function in the brain.”</p>
-	
+
 									<h3>Math reveals structure in neural activity in the brain</h3>
-									<p>The method — clique topology — was developed by an interdisciplinary team of researchers at Penn State, the University of Pennsylvania, the Howard Hughes Medical Institute, and the University of Nebraska-Lincoln. The method is described in a paper that will be posted in the early online edition of the journal Proceedings of the National Academy of Sciences during the week ending October 23, 2015.</p>
+									<p>A newly-developed mathematical method can detect
+										geometric structure in neural activity in the brain.
+										“Previously, in order to understand this structure, scientists
+										needed to relate neural activity to some specific external
+										stimulus,” said Vladimir Itskov, associate professor of
+										mathematics at Penn State University. “Our method is the first
+										to be able to reveal this structure without our knowing an
+										external stimulus ahead of time. We’ve now shown that our new
+										method will allow us to explore the organizational structure of
+										neurons without knowing their function in advance.”</p>
 	
-									<p>“We have adopted approaches from the field of algebraic topology that previously had been used primarily in the domain of pure mathematics and have applied them to experimental data on the activity of place cells — specialized neurons in the part of the brain called the hippocampus that sense the position of an animal in its environment,” said Curto.</p>
+									<p>The method — clique topology — was developed by an
+										interdisciplinary team of researchers at Penn State, the
+										University of Pennsylvania, the Howard Hughes Medical
+										Institute, and the University of Nebraska-Lincoln. The method
+										is described in a paper that will be posted in the early online
+										edition of the journal Proceedings of the National Academy of
+										Sciences during the week ending October 23, 2015.</p>
+
+
 								</div>
 							</div>
 						</article>
@@ -83,9 +91,9 @@
 						<aside>
 							<!-- sidebar-widget -->
 							<div class="sidebar-widget">
-								<h3 class="sidebar-title">About Me</h3>
+								<h3 class="sidebar-title">Board</h3>
 								<div class="widget-container widget-about">
-									<a href="/post.do"><img src="/renda/images/author.jpg" alt=""></a>
+									<a href="/search.do"><img src="/renda/images/author.jpg" alt=""></a>
 									<h4>Jamie Mooz</h4>
 									<div class="author-title">Designer</div>
 									<p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>
@@ -97,56 +105,56 @@
 								<div class="widget-container">
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="/post.do"><img src="/renda/images/90x60-1.jpg" alt=""></a>
+											<a href="/search.do"><img src="/renda/images/90x60-1.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="/post.do">The State of the Word 2014</a></h2>
+											<h2><a href="/search.do">The State of the Word 2014</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/search.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="/post.do"><img src="/renda/images/90x60-2.jpg" alt=""></a>
+											<a href="/search.do"><img src="/renda/images/90x60-2.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="/post.do">Why The Muppets Needs to Channel 30 Rock</a></h2>
+											<h2><a href="/search.do">Why The Muppets Needs to Channel 30 Rock</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/search.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="/post.do"><img src="/renda/images/90x60-3.jpg" alt=""></a>
+											<a href="/search.do"><img src="/renda/images/90x60-3.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="/post.do">The State of the Word 2014</a></h2>
+											<h2><a href="/search.do">The State of the Word 2014</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/search.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="/post.do"><img src="/renda/images/90x60-4.jpg" alt=""></a>
+											<a href="/search.do"><img src="/renda/images/90x60-4.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="/post.do">Vintage-Inspired Finds for Your Home</a></h2>
+											<h2><a href="/search.do">Vintage-Inspired Finds for Your Home</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/search.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>
 									<article class="widget-post">
 										<div class="post-image">
-											<a href="/post.do"><img src="/renda/images/90x60-5.jpg" alt=""></a>
+											<a href="/search.do"><img src="/renda/images/90x60-5.jpg" alt=""></a>
 										</div>
 										<div class="post-body">
-											<h2><a href="/post.do">The State of the Word 2014</a></h2>
+											<h2><a href="/search.do">The State of the Word 2014</a></h2>
 											<div class="post-meta">
-												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/post.do"><i class="fa fa-comment-o"></i> 23</a></span>
+												<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/search.do"><i class="fa fa-comment-o"></i> 23</a></span>
 											</div>
 										</div>
 									</article>

@@ -80,6 +80,13 @@ public class NoticeController {
 		return "/about";
 	}
 	
+	@RequestMapping(value="bar")
+	public String bar(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
+		
+		System.out.println("bar.jsp");
+		return "/bar";
+	}
+	
 	
 	
 	/**
