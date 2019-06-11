@@ -5,4 +5,5 @@
 /SpringPRJ/target/
 /SpringPRJ/.classpath
 /SpringPRJ/.project
-/SpringPRJ/WebContent/jsonData/
+/SpringPRJ/WebContent/jsonfile/
+/SpringPRJ/WebContent/csvfile/
