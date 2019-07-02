@@ -27,5 +27,20 @@ public class SearchService implements ISearchService {
 		System.out.println("--------------getLeagueNClub");
 		return searchMapper.getLeagueNClub();
 	}
+
+	@Override
+	public List<SearchDTO> searchPlayersKNC(SearchDTO sDTO) throws Exception {
+		return searchMapper.searchPlayersKNC(sDTO);
+	}
+
+	@Override
+	public List<SearchDTO> searchPlayersNC(SearchDTO sDTO) throws Exception {
+		return searchMapper.searchPlayersNC(sDTO);
+	}
+
+	@Override
+	public List<SearchDTO> searchPlayersDefault() throws Exception {
+		return searchMapper.searchPlayersDefault();
+	}
 	
 }

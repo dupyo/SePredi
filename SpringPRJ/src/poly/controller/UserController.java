@@ -109,14 +109,22 @@ public class UserController {
 		
 		UserDTO uDTO = new UserDTO();
 		uDTO.setId(id);
-		UserDTO getNo = userService.getUser(uDTO);
+		int res = 0;
+		/*UserDTO getNo = new UserDTO();
+		getNo = userService.getUser(uDTO);
 		int res = 0;
 		if ("".equals(CmmUtil.nvl(String.valueOf(getNo)))) {	//로그인 후 받은 사용자 고유ID로 DB에 저장되어 있는 유저인지 확인 //저장 안 되어 있음->참, 저장되어 있음->거짓
 			uDTO.setId(id);
 			uDTO.setName(name);
 			uDTO.setEmail(email);
 			res = userService.createUser(uDTO);
-		}
+			log.info(res);
+		}*/
+		uDTO.setId(id);
+		uDTO.setName(name);
+		uDTO.setEmail(email);
+		res = userService.insertDupl(uDTO);
+		log.info(res);
 		
 		//사용자 고유 ID, 이름, 이메일 세션에 올린다
 		session.setAttribute("id", id);
@@ -174,7 +182,6 @@ public class UserController {
 		session.setAttribute("email", "");
 		session.setAttribute("accessToken", "");
 		
-		model.addAttribute("url","/main.do");
 		
 		return "redirect:http://localhost:8080";
 		

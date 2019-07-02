@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="poly.util.CmmUtil"%>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -7,7 +9,7 @@
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<link rel="icon" href="favicon.ico">
+		<!-- <link rel="icon" href="favicon.ico"> -->
 		<title>post</title>
 		<!-- Bootstrap core CSS -->
 		<link href="/renda/css/bootstrap.min.css" rel="stylesheet">
@@ -15,6 +17,13 @@
 		<!-- Custom styles for this template -->
 		<link href="/renda/css/jquery.bxslider.css" rel="stylesheet">
 		<link href="/renda/css/style.css" rel="stylesheet">
+		
+		<%
+			String id = CmmUtil.nvl((String)session.getAttribute("id"));
+			String name = CmmUtil.nvl((String)session.getAttribute("name"));
+			String email = CmmUtil.nvl((String)session.getAttribute("email"));
+		%>
+		
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -32,13 +41,18 @@
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="/main.do">Home</a></li>
 						<li><a href="/search.do">Search</a></li>
-						<li><a href="#contact">Travel</a></li>
 						<li><a href="/boardList.do">Board</a></li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<%if (!"".equals(name)) { %>
+						<li style="padding:15px; color:white"><%=name %>님 환영합니다.</li>
+						<li><a href="/kakaologout.do">Sign out</a></li>
+						<%} else {%>
+						<li><a href="/accountskakao.do">
+						Sign in</a></li><!-- rest api 인증키를 받은 후 url을 만들어서 로그인 화면으로 이동 -->
+						<!-- <a href="/renda/images/kakao_account_login_btn_medium_narrow.png"></a> -->
+						<%} %>
 					</ul>
 
 				</div>
@@ -47,7 +61,7 @@
 		</nav>
 
 		<div class="container">
-			<header style="margin: 51px 0 0;">
+			<header style="margin: 51px 0 0; border-bottom:1px solid #CECECE;">
 				<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 30%;"></a>
 			</header>
 			<section>

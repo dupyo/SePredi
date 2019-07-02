@@ -12,5 +12,6 @@ public interface UserMapper {
 	public int createUser(UserDTO uDTO) throws Exception;
 	public int deleteUser(UserDTO uDTO) throws Exception;
 	public UserDTO getUser(UserDTO uDTO) throws Exception;
+	public int insertDupl(UserDTO uDTO) throws Exception;
 	
 }

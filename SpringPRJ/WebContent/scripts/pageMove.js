@@ -1,6 +1,7 @@
-const pageMove ={
-		board : function(){
-			location.href="/notice/"+param+".do";
+var pageMove ={
+		boardInsert : function(){
+			alert('asdasd')
+			//location.href="/insertBoard.do";
 		},
 		click : function(){
 			location.href="/accountskakao.do";
@@ -8,6 +9,10 @@ const pageMove ={
 		search : function(param){
 			console.log("search : " +param);
 			location.href="/searchFromCSV.do?keywords="+param;
+		},
+		boardDetail : function(param){
+			console.log("boardDetail : " +param);
+			location.href="/boardDetail.do?id="+param;
 		}
 }
 

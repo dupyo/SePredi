@@ -1,6 +1,7 @@
 package poly.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import poly.dto.BoardDTO;
+import poly.filter.UrlFilter;
 import poly.service.IBoardService;
 import poly.service.INoticeService;
+import poly.util.CmmUtil;
 
 /*
  * Controller 선언해야만 Spring 프레임워크에서 Controller인지 인식 가능
@@ -48,8 +51,9 @@ public class BoardController {
 	//DB에서 게시판 목록 가져와서 jsp페이지에서 사용
 	@RequestMapping(value="boardList")
 	public String boardList(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
-		
-		List<BoardDTO> bList = boardService.getBoardList();
+
+		List<BoardDTO> bList = new ArrayList<BoardDTO>();
+		bList = boardService.getBoardList();
 		model.addAttribute("bList", bList);
 		
 		System.out.println("board");
@@ -57,19 +61,29 @@ public class BoardController {
 	}
 	
 	//게시물 작성 jsp페이지로 이동
-	@RequestMapping(value="insertBoard")
+	@RequestMapping(value="insertBoard", method=RequestMethod.GET)
 	public String insertBoard(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
-		
-		System.out.println("insert board");
-		return "/board/insertBoard";
+		if (!"".equals(CmmUtil.nvl((String)session.getAttribute("id")))) {
+			System.out.println("insert board");
+			return "/board/insertBoard";
+		} else {
+			model.addAttribute("msg", msg="로그인 후 글을 작성할 수 있습니다.");
+			model.addAttribute("url", url="/boardList.do");
+			return "/alert";
+		}
 	}
 	
 	//DB에 게시물 등록 후 게시판 목록 jsp페이지로 이동
-	@RequestMapping(value="insertBoardProc", method=RequestMethod.GET)
-	public String insertBoardProc(BoardDTO bDTO, HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
-		
+	@RequestMapping(value="insertBoardProc", method=RequestMethod.POST)
+	public String insertBoardProc(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
+		String id = CmmUtil.nvl(request.getParameter("id"));
+		String title = CmmUtil.nvl(request.getParameter("title"));
+		String content = CmmUtil.nvl(request.getParameter("content"));
+		BoardDTO bDTO = new BoardDTO();
+		bDTO.setId(id);
+		bDTO.setTitle(title);
+		bDTO.setContent(content);
 		int res = boardService.insertBoard(bDTO);
-		
 		if (res != 0) {
 			model.addAttribute("msg", msg="게시물이 정상적으로 등록되었습니다.");
 			model.addAttribute("url", url="/boardList.do");
@@ -87,9 +101,19 @@ public class BoardController {
 	@RequestMapping(value="boardDetail", method=RequestMethod.GET)
 	public String boardDetail(BoardDTO bDTO, HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception{
 		
+		boolean matchSession = false;
+		log.info("get boardNo : " + bDTO.getBoardNo());
+		log.info("get id : " + bDTO.getId());
 		bDTO = boardService.getBoardDetail(bDTO);
-		model.addAttribute("bDTO", bDTO);
+		String sid = CmmUtil.nvl((String)session.getAttribute("id"));
+		if (!"".equals(sid)) {
+			if (bDTO.getId().equals(sid)) {
+				matchSession = true;
+			}
+		}
 		
+		model.addAttribute("matchSession", matchSession);
+		model.addAttribute("bDTO", bDTO);
 		System.out.println("detail board");
 		return "/board/boardDetail";
 	}
@@ -105,11 +129,11 @@ public class BoardController {
 			model.addAttribute("url", url="/boardList.do");
 		} else {
 			model.addAttribute("msg", msg="게시물을 등록하는 것에 실패하였습니다.");
-			model.addAttribute("url", url="/boardDetail.do");
+			model.addAttribute("url", url="/boardDetail.do?boardNo="+bDTO.getBoardNo()+"&id="+bDTO.getId());
 		}
 		
 		System.out.println("delete board");
-		return "/board/boardList";
+		return "/alert";
 	}
 	
 	

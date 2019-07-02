@@ -21,10 +21,13 @@
 	</insert>
 	
 	<select id="getUser" parameterType="UserDTO" resultType="UserDTO">
-		select USERNO
+		select ID AS id
 		FROM userinfo
 		WHERE ID=#{id};
 	</select>
 	
-	
+	<insert id="insertDupl" parameterType="UserDTO">
+		INSERT INTO userinfo (ID, NAME, EMAIL, REGDATE) VALUES (#{id}, #{name}, #{email}, NOW() )
+		ON DUPLICATE KEY UPDATE ID=VALUES(ID), NAME=VALUES(NAME), EMAIL=VALUES(EMAIL), UPDDATE=VALUES(REGDATE);
+	</insert>
 </mapper>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="poly.controller.UserController"%>
 <%@page import="com.fasterxml.jackson.databind.JsonNode"%>
 <%@page import="poly.util.CmmUtil"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -12,7 +12,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="manifest" href="/webmanifest/manifest.json" />
-	<link rel="icon" href="favicon.ico">
+	<!-- <link rel="icon" href="favicon.ico"> -->
 	<title>sepredi</title>
 	<!-- Bootstrap core CSS -->
 	<link href="/renda/css/bootstrap.min.css" rel="stylesheet">
@@ -44,39 +44,7 @@
 <body>
 <!-- <button onclick="sibal()">로그아웃</button> -->
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="/main.do">Home</a></li>
-					<li><a href="/search.do">Search</a></li>
-					<li><a href="/boardList.do">Board</a></li>
-				</ul>
-
-				<ul class="nav navbar-nav navbar-right">
-					<%if (!"".equals(name)) { %>
-					<li style="padding:15px; color:white"><%=name %>님 환영합니다.</li>
-					<li><a href="/kakaologout.do">Sign out</a></li>
-					<%} else {%>
-					<li><a href="/accountskakao.do">
-					Sign in</a></li><!-- rest api 인증키를 받은 후 url을 만들어서 로그인 화면으로 이동 -->
-					<!-- <a href="/renda/images/kakao_account_login_btn_medium_narrow.png"></a> -->
-					<li><a href="#">Sign up</a></li>
-					<%} %>
-				</ul>
-
-			</div>
-			<!--/.nav-collapse -->
-		</div>
-	</nav>
+	<%@include file="/WEB-INF/view/nav/navigationH.jsp" %>
 
 
 
@@ -105,7 +73,7 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 
 
 	<div class="container">
-		<header style="margin: 51px 0 0;">
+		<header style="margin: 51px 0 0; border-bottom:1px solid #CECECE;">
 			<a href="/main.do"><img src="/renda/images/LogoSePredi.png" style="width: 30%;"></a>
 		</header>
 		
@@ -114,15 +82,12 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 		</video> -->
 		
 		
-		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-			Sign in
-		</button>
 		<!-- Button trigger modal -->
 		<section class="main-slider">
 			<ul class="bxslider">
-				<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
-				<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
-				<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="/post.do" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
+				<li><div class="slider-item"><img src="/renda/images/35d3072d-f49a-4fcc-a46b-f5cb392a81e8_1516072228.jpeg" title="Funky roots" /><h2><a href="#" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
+				<li><div class="slider-item"><img src="/renda/images/soi-keo-xien.jpeg" title="Funky roots" /><h2><a href="#" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
+				<li><div class="slider-item"><img src="/renda/images/background.png" title="Funky roots" /><h2><a href="#" title="Vintage-Inspired Finds for Your Home">Vintage-Inspired Finds for Your Home</a></h2></div></li>
 			</ul>
 		</section>
 		<section>
@@ -144,7 +109,7 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="myModalLabel">카카오 로그인</h4>
 								</div>
-								<div class="modal-body">
+								<div class="modal-body" style="font-size:12px;">
 								 카카로 계정으로 로그인하면 쿠키 데이터가 최대 6시간동안 유지됩니다. 그래도 하시겠습니까?
 								</div>
 								<div class="modal-footer">
@@ -156,109 +121,21 @@ Notification Time-To-Live: <input id='notification-ttl' type='number' value='10'
 					</div>
 					
 					
-					<%=email %><br>
-					<%=name %><br>
-					<%=id %>
 					
 					
-					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="/search.do"><img src="/renda/images/750x500-1.jpg" alt=""></a>
-						</div>
-					<div class="blog-post-body">
-							<h2><a href="/search.do">Vintage-Inspired Finds for Your Home</a></h2>
-							<div class="post-meta"><span>by <a href="#">Jamie Mooze</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
-							<p>ew months ago, we found ridiculously cheap plane tickets for Boston and off we went. It was our first visit to the city and, believe it or not, Stockholm in February was more pleasant than Boston in March. It probably has a lot to do with the fact that we arrived completely unprepared. That I, in my converse and thin jacket, did not end up with pneumonia is honestly not even fair.</p>
-							<div class="read-more"><a href="#">Continue Reading</a></div>
-						</div>
-					</article>
-					<!-- article -->
+					
+					
+					
 					
 				</div>
-				<div class="col-md-4 sidebar-gutter">
-					<aside>
-						<!-- sidebar-widget -->
-						<div class="sidebar-widget">
-							<h3 class="sidebar-title">Board</h3>
-							<div class="widget-container widget-about">
-								<a href="/search.do"><img src="/renda/images/author.jpg" alt=""></a>
-								<h4>Jamie Mooz</h4>
-								<div class="author-title">Designer</div>
-								<p>While everyone’s eyes are glued to the runway, it’s hard to ignore that there are major fashion moments on the front row too.</p>
-							</div>
-						</div>
-						<!-- sidebar-widget -->
-						<div class="sidebar-widget">
-							<h3 class="sidebar-title">Featured Posts</h3>
-							<div class="widget-container">
-								<article class="widget-post">
-									<div class="post-image">
-										<a href="/search.do"><img src="/renda/images/90x60-1.jpg" alt=""></a>
-									</div>
-									<div class="post-body">
-										<h2><a href="/search.do">The State of the Word 2014</a></h2>
-										<div class="post-meta">
-											<span><i class="fa fa-clock-o"></i> 2. august 2015</span> <span><a href="/search.do"><i class="fa fa-comment-o"></i> 23</a></span>
-										</div>
-									</div>
-								</article>
-								
-								
-								
-							</div>
-						</div>
-						<!-- sidebar-widget -->
-						<div class="sidebar-widget">
-							<h3 class="sidebar-title">Socials</h3>
-							<div class="widget-container">
-								<div class="widget-socials">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-									<a href="#"><i class="fa fa-instagram"></i></a>
-									<a href="#"><i class="fa fa-google-plus"></i></a>
-									<a href="#"><i class="fa fa-dribbble"></i></a>
-									<a href="#"><i class="fa fa-reddit"></i></a>
-								</div>
-							</div>
-						</div>
-						<!-- sidebar-widget -->
-						<div class="sidebar-widget">
-							<h3 class="sidebar-title">Categories</h3>
-							<div class="widget-container">
-								<ul>
-									<li><a href="#">Art</a></li>
-									<li><a href="#">Design</a></li>
-									<li><a href="#">Featured</a></li>
-									<li><a href="#">Graphics</a></li>
-									<li><a href="#">Peoples</a></li>
-									<li><a href="#">Uncategorized</a></li>
-								</ul>
-							</div>
-						</div>
-					</aside>
-				</div>
+				
 			</div>
 		</section>
 	</div><!-- /.container -->
 
 
 
-	<footer class="footer">
-
-		<div class="footer-socials">
-			<a href="#"><i class="fa fa-facebook"></i></a>
-			<a href="#"><i class="fa fa-twitter"></i></a>
-			<a href="#"><i class="fa fa-instagram"></i></a>
-			<a href="#"><i class="fa fa-google-plus"></i></a>
-			<a href="#"><i class="fa fa-dribbble"></i></a>
-			<a href="#"><i class="fa fa-reddit"></i></a>
-		</div>
-
-		<div class="footer-bottom">
-			<i class="fa fa-copyright"></i> Copyright 2015. All rights reserved.<br>
-			Theme made by <a href="http://www.moozthemes.com">MOOZ Themes</a>
-		</div>
-	</footer>
+	<%@include file="/WEB-INF/view/footer.jsp" %>
 
 
 
@@ -325,42 +202,8 @@ $('#kakaologin').click( function () {
 })
 
 
-
-
-//뉴스 타이틀, 요약 정보 가져오기
-/* var request = require('request'),
-    cheerio = require('cheerio');
-
-var url = "http://codenamu.org/blog/";
-
-request(url, function (err, res, html) {
-    if (!err) {
-        var $ = cheerio.load(html);
-        
-        // 블로그 title 정보 가져오기
-        $(".entry-title > a").each(function () {
-            var post = {"title": "", "link": "", "summary": "", "category": []};
-            var data = $(this);
-            
-            post["title"] = data.text();
-            post["link"] = data.attr("href");
-        });
-        
-        // 블로그 요약 정보 가져오기
-        $(".entry-summary > p").each(function (i) {
-            // do something
-        })
- 
-        // 블로그 카테고리 가져오기
-        $(".entry-categories").each(function (i) {
-            $(this).children('a').each(function () {
-                // do something
-            });
-        })
-    } */
-
 </script>
-<div style="cursor:pointer" onclick="pageMove.notice('insert')">asdsad</div>
-<div style="cursor:pointer" onclick="pageMove.click()">click</div>
+<!-- <div style="cursor:pointer" onclick="pageMove.notice('insert')">asdsad</div>
+<div style="cursor:pointer" onclick="pageMove.click()">click</div> -->
 </body>
 </html>

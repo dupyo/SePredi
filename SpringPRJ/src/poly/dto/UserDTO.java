@@ -8,10 +8,9 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class UserDTO {
 
-	private String userNo;	//회원번호(PK)
-	private String id;	//사용자 고유 ID
-	private String email;	//이메일
+	private String id;	//사용자 고유 ID(PK)
 	private String name;	//이름
+	private String email;	//이메일
 	private JsonNode accessToken;	//이름
 	private String corp;	//소셜로그인 계정 종류
 	private String regDate;	//등록일
@@ -19,12 +18,6 @@ public class UserDTO {
 	private String updDate;	//수정일
 	private String updNo;	//수정자회원번호
 	
-	public String getUserNo() {
-		return userNo;
-	}
-	public void setUserNo(String userNo) {
-		this.userNo = userNo;
-	}
 	public String getId() {
 		return id;
 	}

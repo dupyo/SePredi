@@ -24,6 +24,9 @@ public class UserService implements IUserService{
 
 	@Override
 	public int createUser(UserDTO uDTO) throws Exception {
+		System.out.println("uDTO : " + uDTO.getId());
+		System.out.println("uDTO : " + uDTO.getName());
+		System.out.println("uDTO : " + uDTO.getEmail());
 		return userMapper.createUser(uDTO);
 	}
 
@@ -34,7 +37,16 @@ public class UserService implements IUserService{
 
 	@Override
 	public UserDTO getUser(UserDTO uDTO) throws Exception {
+		System.out.println("uDTO : " + uDTO.getId());
 		return userMapper.getUser(uDTO);
+	}
+
+	@Override
+	public int insertDupl(UserDTO uDTO) throws Exception {
+		System.out.println("uDTO : " + uDTO.getId());
+		System.out.println("uDTO : " + uDTO.getName());
+		System.out.println("uDTO : " + uDTO.getEmail());
+		return userMapper.insertDupl(uDTO);
 	}
 
 	

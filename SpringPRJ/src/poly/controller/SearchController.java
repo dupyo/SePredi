@@ -1,5 +1,6 @@
 package poly.controller;
 
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -23,6 +25,9 @@ import poly.dto.SearchDTO;
 import poly.service.ICrawlingService;
 import poly.service.ISearchService;
 import poly.util.CSVReadFromFile;
+import poly.util.CmmUtil;
+import poly.util.CrawlingPlayers;
+import poly.util.DataType;
 
 @Controller
 public class SearchController {
@@ -35,14 +40,98 @@ public class SearchController {
 	public String search(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception {
 		System.out.println("search.jsp");
 		
+		String listlength = "";
 		
 		List<SearchDTO> nationalities = searchService.getNationality();
-		List<SearchDTO> leaguenclubs = searchService.getLeagueNClub();
-		Iterator<SearchDTO> itleaguenclubs = leaguenclubs.iterator();
+		List<SearchDTO> lLeaguenclubs = searchService.getLeagueNClub();
+		Iterator<SearchDTO> itleaguenclubs = lLeaguenclubs.iterator();
+		model.addAttribute("listlength", listlength);
 		model.addAttribute("nationalities", nationalities);
+		model.addAttribute("lLeaguenclubs", lLeaguenclubs);
 		model.addAttribute("itleaguenclubs", itleaguenclubs);
 		return "/search";
 	}
+	
+	
+	
+	
+	
+	@RequestMapping(value="searchPlayers", method=RequestMethod.GET)
+	public String searchPlayers (HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception {
+		//searchNCP=국적+클럽+이름, searchNC=국적+클럽, searchN=이름
+		String listlength = "";
+		String keywords = CmmUtil.nvl(request.getParameter("keywords"));
+		
+		String nationality = CmmUtil.nvl(request.getParameter("nationality"));
+		String club = CmmUtil.nvl(request.getParameter("club"));
+		
+		SearchDTO sDTO = new SearchDTO();
+		sDTO.setClub(club);
+		log.info("sDTO. get club : " + sDTO.getClub());
+		sDTO.setNationality(nationality);
+		log.info("sDTO. get nationality : " + sDTO.getNationality());
+		List<SearchDTO> searchList = new ArrayList<SearchDTO>();
+		
+		if (!"".equals(keywords)) {
+			String [] tests = keywords.split(",");
+			for (String test : tests) {
+				keywords += CrawlingPlayers.search(test) + " ";
+			}
+			log.info(keywords);
+			sDTO.setKeywords(keywords);
+			log.info("sDTO. get keywords : " + sDTO.getKeywords());
+			log.info("keywords true");
+			searchList = searchService.searchPlayersKNC(sDTO);
+		} else if (!"".equals(sDTO.getNationality()) || !"".equals(sDTO.getClub())){
+			log.info("keywords false but nationality or club true");
+			searchList = searchService.searchPlayersNC(sDTO);
+		} else {
+			searchList = searchService.searchPlayersDefault();
+		}
+		
+		
+		log.info("searchList size : " + searchList.size());
+		
+		listlength = String.valueOf(searchList.size());
+		log.info("listlength : " + listlength);
+		
+		
+		for(int i=0; i<searchList.size()-1; i++) {
+			log.info("searchList get : " + searchList.get(0).getNationality());
+		}
+		
+		model.addAttribute("listlength", listlength);
+		model.addAttribute("searchList", searchList);
+		searchList = null;
+		log.info("searchPlayer end");
+		
+		return "/playerList";
+	}
+	
+	
+	
+	
+	
+	
+	@RequestMapping(value="crawlingNamu", produces="application/text;charset=utf-8" ,method=RequestMethod.GET)
+	public @ResponseBody String crawlingNamu(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception {
+		//searchNCP=국적+클럽+이름, searchNC=국적+클럽, searchN=이름
+		String kr = CmmUtil.nvl(request.getParameter("kr"));
+		String keywords="griezmann";
+		String html="";
+		keywords = CrawlingPlayers.crawlingKR(kr);
+		html = CrawlingPlayers.crawlingNamu(keywords);
+		log.info("html : " + html);
+		/* URLDecoder. */
+		log.info("searchPlayer end");
+		
+		return html;
+	}
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value="searchFromCSV", method=RequestMethod.GET)
 	public String searchFromCSV(HttpServletRequest request, HttpServletResponse response, Model model, HttpSession session) throws Exception {

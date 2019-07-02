@@ -4,16 +4,40 @@
 <mapper namespace="poly.persistance.mapper.SearchMapper">
 	<!-- 국적 정보 가져오기 -->
 	<select id="getNationality" resultType="SearchDTO">
-		select distinct nationality as nationality 
-		from sepredi.players 
-		order by nationality asc;
+		SELECT distinct nationality AS nationality 
+		FROM sepredi.players 
+		ORDER BY nationality ASC;
 	</select>
 	
 	<!-- 리그 및 클럽 정보 가져오기 -->
 	<select id="getLeagueNClub" resultType="SearchDTO">
-		select leagueandclub.league as league, leagueandclub.club as club 
-		from leagueandclub 
-		order by leagueandclub.league desc, leagueandclub.club asc;
+		SELECT leagueandclub.league AS league, leagueandclub.club AS club 
+		FROM leagueandclub 
+		ORDER BY leagueandclub.league DESC, leagueandclub.club ASC;
+	</select>
+	
+	<select id="searchPlayersKNC" parameterType="SearchDTO" resultType="SearchDTO">
+		SELECT * 
+		FROM sepredi.players
+		WHERE match(name) against (#{keywords})
+		AND nationality like concat ('%',#{nationality},'%')
+		AND club like concat('%',#{club},'%');
+  		
+	</select>
+	
+	<select id="searchPlayersNC" parameterType="SearchDTO" resultType="SearchDTO">
+		SELECT * 
+		FROM sepredi.players 
+		WHERE nationality like concat ('%',#{nationality},'%')
+		AND club like concat('%',#{club},'%');
+  		
+	</select>
+	
+	<select id="searchPlayersDefault" parameterType="SearchDTO" resultType="SearchDTO">
+		SELECT * 
+		FROM sepredi.players 
+		LIMIT 50;
+  		
 	</select>
 	
 	
